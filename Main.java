@@ -1,89 +1,96 @@
 package com.tutorial;
+//jenis Ban
+class ban {
+    String namaban;
+    String ukuranban;
+    String pic;
+        //turunan clas di namaban class
+        tiredesign Tiredesign;
+        testban Testbban;
 
-//player
-class player{
-    String playername;
-    Double darah;
-    Integer level;
-        //player juga mempunyai senjata dan armor
-        senjata Senjata;
-        armor Armor;
-
-    player(String playername, Double darah, Integer level){
-        this.playername = playername;
-        this.darah = darah;
-        this.level = level;
+    ban(String namaban, String ukuranban , String pic){
+        this.namaban = namaban;
+        this.ukuranban = ukuranban;
+        this.pic  = pic ;
     }
-    void equipsenjata(senjata Senjata){
-        this.Senjata = Senjata;
+    void equiptiredesign(tiredesign Tiredesign){
+        this.Tiredesign = Tiredesign; 
     }
-    void equiparmor(armor Armor){
-        this.Armor = Armor;
+    void equiptestban(testban Testban){
+        this.Testbban = Testban;
     }
     void display(){
-        System.out.println("\nNama Player   :" + playername );
-        System.out.println("Darah         :" + darah );
-        System.out.println("Level         :Lv " + level );
-        this.Armor.display();
-        this.Senjata.display();
-    }
-        
-}
-
-// senjata
-class senjata{
-    String namasenjata;
-    Double attackpower;
-
-    senjata(String namasenjata, Double attackpower){
-        this.namasenjata = namasenjata;
-        this.attackpower = attackpower;
-    }
-    void equipsenjata(String namasenjata){
-        this.namasenjata = namasenjata;
-        this.attackpower = attackpower;
-    }
-    void display(){
-        System.out.println("Weapon        :" + namasenjata + " , Attack Power" + this.attackpower); 
+        System.out.println("\nNama Ban         : " + this.namaban);
+        System.out.println("Ukuran Ban       : " + this.ukuranban);
+        System.out.println("PIC ban          : " + this.pic);
+        this.Testbban.display();
+        this.Tiredesign.display();
     }
 }
-//Armor
-class armor{
-    String namaarmor;
-    Double defencepower;
+//class tire design
+class tiredesign{
+    String namatiredesign;
+    Integer jumlah;
 
-    armor(String namaarmor, Double defencepower){
-        this.namaarmor = namaarmor;
-        this.defencepower = defencepower;
+    tiredesign(String namatiredesign, Integer jumlah){
+        this.namatiredesign = namatiredesign;
+        this.jumlah = jumlah;
+}
+    void display(){
+        System.out.println("Nama Tire Design : " + this.namatiredesign);
+        System.out.println("Jumlah ban       : " + this.jumlah + " Pcs");
+    }
+
+}
+
+//class test ban
+class testban{
+    String namatestban;
+    String ovt;
+
+    testban(String namatestban, String ovt){
+        this.namatestban = namatestban;
+        this.ovt = ovt;
     }
     void display(){
-        System.out.println("Armor         :" + this.namaarmor + " , Defence power" + this.defencepower +" Hp");
+        System.out.println("Nama Test Ban    : "+ this.namatestban);
+        System.out.println("OVT              : "+ this.ovt);
     }
-
 }
 
 
 public class Main{
     public static void main(String[] args) {
-        System.out.println("hello watep");
-        player player1 = new player("Atep Rosdiana", 100.0, 1);
-        player player2 = new player("Roronoa Dzoro", 80.0, 3);
+        System.out.println("Hello Atep");
+        //membuat data nama ban
+        ban ban1 = new ban("CHAMPIRO ECO", "205/65 R16 99H", "Atep Rosdiana");
+        ban ban2 = new ban("CHAMPIRO ECOTEC", "225/65 R16 88H", "Atep Rosdiana");
+        ban ban3 = new ban("CHAMPIRO HPY", "205/50 R16 100H", "Atep Rosdiana");
+            //membuat data tire design
+        tiredesign tiredesign1 = new tiredesign("Rica Novia", 40);
+        tiredesign tiredesign2 = new tiredesign("ASRY", 48);
+        tiredesign tiredesign3 = new tiredesign("RIDWAN JUNIARGA", 24);
+            //membuat objek test ban
+        testban testban1 = new testban("WET BRAKING", "OVT 40");
+        testban testban2 = new testban("DRY BRAKING", "OVT 40");
+        testban testban3 = new testban("WET HANDLING", "OVT 40");
+            //mambuat output yang di seting sbb
+       ban1.equiptestban(testban1);
+       ban1.equiptiredesign(tiredesign1);
+       ban1.display();
+       System.out.println("\n");
        
+       ban2.equiptestban(testban2);
+       ban2.equiptiredesign(tiredesign2);
+       ban2.display();
+       System.out.println("\n");
 
-        senjata senjata1 = new senjata("Pedang Tajam 1", 10.0);
-        senjata senjata2 = new senjata("Pedang Tajam 2", 15.0);
-        senjata senjata3 = new senjata("Pedang Tajam 2", 20.0);
+       ban3.equiptestban(testban3);
+       ban3.equiptiredesign(tiredesign3);
+       ban3.display();
+       System.out.println("\n");
 
-        armor armor1 = new armor("Rompi Lv 1", 40.0);
-        armor armor2 = new armor("Rompi Lv 2", 60.0);
-        armor armor3 = new armor("Rompi Lv 3", 80.0);
-
-        player1.equiparmor(armor1);
-        player1.equipsenjata(senjata1);
-        player1.display();
-
-        player2.equiparmor(armor1);
-        player2.equipsenjata(senjata1);
-        player2.display();
+       ban1.display();
+       //Bagaimana cara menampilkan output sesuai kita >>?
     }
 }
