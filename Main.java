@@ -1,73 +1,89 @@
 package com.tutorial;
 
-//Player
-class player {
-String playerName;
-double darah;
-int level;
-    //player jugA MEMPUNYAI armor dan senjata
-    senjata pedang;
-    armor rompi;
+//player
+class player{
+    String playername;
+    Double darah;
+    Integer level;
+        //player juga mempunyai senjata dan armor
+        senjata Senjata;
+        armor Armor;
 
-    player(String playerName, double darah){
-        this.playerName=playerName;
-        this.darah=darah;
+    player(String playername, Double darah, Integer level){
+        this.playername = playername;
+        this.darah = darah;
+        this.level = level;
     }
-    void equipSenjata(senjata pedang){
-        this.pedang = pedang;
+    void equipsenjata(senjata Senjata){
+        this.Senjata = Senjata;
     }
-    void equiprompi(armor rompi){
-        this.rompi=rompi;
+    void equiparmor(armor Armor){
+        this.Armor = Armor;
     }
     void display(){
-        System.out.print("\nNama : " + this.playerName);
-        System.out.println("Health : " + this.darah + "hp");
-        this.pedang.display();
-        this.rompi.display();
+        System.out.println("\nNama Player   :" + playername );
+        System.out.println("Darah         :" + darah );
+        System.out.println("Level         :Lv " + level );
+        this.Armor.display();
+        this.Senjata.display();
     }
+        
 }
 
 // senjata
 class senjata{
-double attackpower;
-String namasenjata;
-    senjata(String namasenjata,double attackpower){
-        this.namasenjata = namasenjata;
-        this.attackpower=attackpower;
-    }
-    void display(){
-        System.out.println("Nama Senjata : " + this.namasenjata + " , power : " + this.attackpower);
-    }
-}
-//Defence
-class armor{
-double defencepower;
-String nama;
-    armor(String nama, double defencepower){
-        this.nama = nama;
-        this.defencepower=defencepower;
-    }
-    void display(){
-        System.out.println("Nama rompi : " + this.nama + " , Defence power : " + this.defencepower);
-    }
-}
+    String namasenjata;
+    Double attackpower;
 
+    senjata(String namasenjata, Double attackpower){
+        this.namasenjata = namasenjata;
+        this.attackpower = attackpower;
+    }
+    void equipsenjata(String namasenjata){
+        this.namasenjata = namasenjata;
+        this.attackpower = attackpower;
+    }
+    void display(){
+        System.out.println("Weapon        :" + namasenjata + " , Attack Power" + this.attackpower); 
+    }
+}
+//Armor
+class armor{
+    String namaarmor;
+    Double defencepower;
+
+    armor(String namaarmor, Double defencepower){
+        this.namaarmor = namaarmor;
+        this.defencepower = defencepower;
+    }
+    void display(){
+        System.out.println("Armor         :" + this.namaarmor + " , Defence power" + this.defencepower +" Hp");
+    }
+
+}
 
 
 public class Main{
     public static void main(String[] args) {
-        //Membuat objek player
-    player player1 = new player("Atep Rosdiana", 100);
-    
-        //membuat objec senjata
-    senjata pedang = new senjata("Keris rencong", 15.0);
+        System.out.println("hello watep");
+        player player1 = new player("Atep Rosdiana", 100.0, 1);
+        player player2 = new player("Roronoa Dzoro", 80.0, 3);
+       
 
-        //membuat objec armor
-    armor rompi1 = new armor("Rompi Level 1", 10);
+        senjata senjata1 = new senjata("Pedang Tajam 1", 10.0);
+        senjata senjata2 = new senjata("Pedang Tajam 2", 15.0);
+        senjata senjata3 = new senjata("Pedang Tajam 2", 20.0);
 
-        //equip senjat dan armor
-        player1.equipSenjata(pedang);
-        player1.equiprompi(rompi1);
+        armor armor1 = new armor("Rompi Lv 1", 40.0);
+        armor armor2 = new armor("Rompi Lv 2", 60.0);
+        armor armor3 = new armor("Rompi Lv 3", 80.0);
+
+        player1.equiparmor(armor1);
+        player1.equipsenjata(senjata1);
         player1.display();
-}
+
+        player2.equiparmor(armor1);
+        player2.equipsenjata(senjata1);
+        player2.display();
+    }
 }
